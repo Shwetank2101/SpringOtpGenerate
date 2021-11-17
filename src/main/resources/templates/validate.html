@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Validate</title>
+
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script
+	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="" th:href="@{/css/mystyle.css}" />
+</head>
+<body>
+
+	<div class="wrapper fadeInDown">
+		<div id="formContent">
+			<!-- Tabs Titles -->
+
+			<!-- Icon -->
+			<div class="fadeIn first">
+				<img src="" th:src="@{image/email.png}" id="icon" alt="User Icon">
+			</div>
+			
+			<p th:style="${color} ?  'background-color:greenyellow' : 'background-color:Tomato' "    th:text="${otp}"></p>
+			
+			<div th:if="${color==false}">
+			
+			<form name="myForm" action="" th:action="@{/sendotp}" >
+				<input type="submit"
+					class="fadeIn fourth" value="Resend Otp">
+			</form>
+			
+			</div>
+			<!-- 
+			<p th:text="${email}"></p>
+			 -->
+			
+		</div>
+	</div>
+	
+	
+
+</body>
+</html>
+
+

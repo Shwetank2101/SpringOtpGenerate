@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>email</title>
+
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script
+	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="" th:href="@{/css/mystyle.css}" />
+
+<script>
+function validateForm() {
+  let x = document.forms["myForm"]["email"].value;
+  if (x == "") {
+    alert("Name must be filled out");
+    return false;
+  }
+  let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  if (x.match(regexEmail)) {
+    let x=1;
+    
+  } else {
+    alert("Enter email only");
+    return false; 
+  }
+}
+
+
+</script>
+</head>
+<body>
+
+	<div class="wrapper fadeInDown">
+		<div id="formContent">
+			<!-- Tabs Titles -->
+
+			<!-- Icon -->
+			<div class="fadeIn first">
+				<img src="" th:src="@{image/email.png}" id="icon" alt="User Icon">
+			</div>
+
+			<!-- Login Form -->
+			<form name="myForm" action="" th:action="@{/submitotp}" onsubmit="return validateForm()" method="post">
+				<input type="text" id="email" name="email" class="fadeIn second"
+					placeholder="Email"> <input type="submit"
+					class="fadeIn fourth" value="Sent OTP">
+				<input  hidden type="text" id="attempt" name="attempt" class="fadeIn second"
+					placeholder="Email"   value=0>
+			</form>
+			
+			
+
+			<!-- Remind Passowrd -->
+			<!--  
+    <div id="formFooter">
+      <a class="underlineHover" href="#">Forgot Password?</a>
+    </div>
+    
+    -->
+
+		</div>
+	</div>
+
+</body>
+</html>

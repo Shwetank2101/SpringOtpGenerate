@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>OTP Validate</title>
+
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script
+	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="" th:href="@{/css/mystyle.css}" />
+
+
+</head>
+<body>
+
+	<div class="wrapper fadeInDown">
+		<div id="formContent">
+			<!-- Tabs Titles -->
+
+			<!-- Icon -->
+			<div class="fadeIn first">
+				<img src="" th:src="@{image/email.png}" id="icon" alt="User Icon">
+			</div>
+			
+			<p style="background-color:greenyellow">Otp sent </p>
+			<!-- 
+			<p th:text="${email}"></p>
+			 -->
+			
+			<!-- Login Form -->
+			<form name="myForm" action="" th:action="@{/validateotp}" onsubmit="return validateForm()" method="post">
+				<input type="text" id="otp" name="otp" class="fadeIn second"
+					placeholder="4-Digit-OTP"> <input type="submit"
+					class="fadeIn fourth" value="Submit OTP">
+					
+				<input  hidden type="text" id="email" name="email" class="fadeIn second"
+					placeholder="Email"     th:value="${email}">
+			</form>
+
+			<!-- Remind Passowrd -->
+   
+			<form name="myForm" action="" th:action="@{/submitotp}" method="post">
+			   <input  hidden type="text" id="email" name="email" class="fadeIn second"
+					placeholder="Email"     th:value="${email}">
+			   <input  hidden type="text" id="attempt" name="attempt" class="fadeIn second"
+					placeholder="Email"  th:value="${attempts}" >
+			   <input  type="submit"
+					class="fadeIn fourth" value="ReSent OTP">
+			   
+			</form>
+			
+			<div class="alert alert-dark" role="alert"><p th:text="${attempt}"></p></div>
+			
+		</div>
+	</div>
+	
+	
+
+</body>
+</html>
+
+
